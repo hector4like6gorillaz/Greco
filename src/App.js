@@ -7,7 +7,7 @@ const App = () => {
       <div>
         <button className={`${styled.BuscarSearchHead}`}>buscar</button>
       </div>
-      <div>
+      <div className={`${styled.bordes}`}>
         <input placeholder="ingrese" />
       </div>
       <div>
@@ -16,6 +16,9 @@ const App = () => {
       <div>
         <input placeholder="ingrese letra" />
       </div>
+      <p className={` ${styled.NombreUsuario}   ${styled.bordes}`}>
+        @Hector.Balan
+      </p>
     </header>
   );
 };
