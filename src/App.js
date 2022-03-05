@@ -19,6 +19,7 @@ const App = () => {
       <p className={` ${styled.NombreUsuario}   ${styled.bordes}`}>
         @Hector.Balan
       </p>
+      <div className={`${styled.avatar}`} >HB</div>
     </header>
   );
 };
