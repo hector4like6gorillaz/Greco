@@ -9,9 +9,11 @@ const App = () => {
     console.log("hola", name, "como estas?");
   };
 
+
+
   return (
     <>
-      <header className={`${styled.HeaderInicial}    `}>
+      <header id={`idEjemplo`} className={`${styled.HeaderInicial}    `}>
         <div>
           <button className={`${styled.BuscarSearchHead}`}>buscar</button>
         </div>
@@ -24,15 +26,27 @@ const App = () => {
         <div>
           <input placeholder="ingrese letra" />
         </div>
-        <p className={` ${styled.NombreUsuario}   ${styled.bordes}`}>
+        <p className={` ${styled.NombreUsuario} ${styled.bordes}`}>
           {MyName}
         </p>
         <div className={`${styled.avatar}`}>HB</div>
       </header>
-      <div className={`${styled.bordes}`}>
+      <div className={` ${styled.scroll} ${styled.bordes}`}>
         <h1>Oda a la programacion</h1>
-        <p>{poema}</p>
-        <button onClick={() => Saludo(MyName)}>saludo</button>
+        <p>hola buenos dias</p>
+        <label>my nombre</label><input type="number" />  <label>my nombre</label>
+        <p>hola buenos dias</p>
+        <p>hola buenos dias</p>
+        <label>my nombre</label><input type="number" />  <label>my nombre</label>
+        <p>hola buenos dias</p>
+        <p>hola buenos dias</p>
+        <label>my nombre</label><input type="number" />  <label>my nombre</label>
+        <p>hola buenos dias</p>
+        <p>hola buenos dias</p>
+        <label>my nombre</label><input type="number" />  <label>my nombre</label>
+        <p>hola buenos dias</p>
+        <p>hola buenos dias</p>
+        <button onClick={()=> Saludo(MyName)}>saludo</button>
       </div>
     </>
   );
