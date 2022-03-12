@@ -90,8 +90,14 @@ const App = () => {
           value={porqueUsestate}
           type={"text"}
         />
-        <p>valor de porqueUsestate: {porqueUsestate}</p>
+        <p style={{ color: "red" }}>
+          valor de porqueUsestate:
+          <span className={`${styled.theSpan}`}> {porqueUsestate.toLocaleUpperCase()}</span>{" "}
+          asdasdsadadasd
+        </p>
         <button onClick={handleButton}>agregar "T"</button>
+
+        <p  className={`${styled.textProps}`}>este es ⛑ un saludo</p>
       </div>
     </>
   );
