@@ -5,7 +5,7 @@ const App = () => {
   const [Altura, setAltura] = useState(null);
   const [base, setbase] = useState(null);
   const [ButtonState, setButtonState] = useState(false);
-
+  const [porqueUsestate, setPorqueUsestate] = useState("");
   const MyName = "hector balan";
 
   const Saludo = (name) => {
@@ -15,6 +15,11 @@ const App = () => {
     setButtonState(false);
     setAltura(0);
     setbase(0);
+  };
+
+  console.log(porqueUsestate);
+  const handleButton = () => {
+    setPorqueUsestate(porqueUsestate + "T");
   };
   return (
     <>
@@ -76,6 +81,17 @@ const App = () => {
         <button onClick={() => setButtonState(true)}>Calcular area</button>
         <button onClick={handleErase}>Borrar</button>
         {ButtonState && <p>el area de tu cuadrilatero es {base * Altura}</p>}
+      </div>
+      <hr />
+      <div>
+        <label>ingresa la base</label>{" "}
+        <input
+          onChange={(e) => setPorqueUsestate(e.target.value)}
+          value={porqueUsestate}
+          type={"text"}
+        />
+        <p>valor de porqueUsestate: {porqueUsestate}</p>
+        <button onClick={handleButton}>agregar "T"</button>
       </div>
     </>
   );
