@@ -21,12 +21,6 @@ const ComponenteFuncional = ({ name, imagen, atributo, numero, show }) => {
       <button className={` ${style.Boton}`} onClick={funcionEjemplo}>
         aumentar variable
       </button>
-      </button>
-      </button>
-      </button>
-      </button>
-      </button>
-      </button>
       <button
         className={`${style.BotonDisminuir} ${style.Boton}`}
         onClick={disminuir}

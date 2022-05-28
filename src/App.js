@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ComponenteFuncional from "./ComponenteFuncional";
 import style from "./card.module.css";
 import NavBarMysite from "./NavBarMysite";
+import OtroEjemplo from "./OtroEjemplo";
 
 const App = () => {
   const [Altura, setAltura] = useState(null);
@@ -63,12 +64,7 @@ const App = () => {
       <NavBarMysite />
       <p>hola como estas</p>
       <p>hola como estas</p>
-      <p>hola como estas</p>
-      <p>hola como estas</p>
-      <p>hola como estas</p>
-      <p>hola como estas</p>
-      <p>hola como estas</p>
-      <p>hola como estas</p>
+      <OtroEjemplo />
       <hr />
       <div className={`${style.CardContenedordeCartas}`}>
         {datosApi.map((item, index) => {
