@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { envAPI } from "./ApiCalls";
+import { envAPI } from "../../ApiCalls";
 import styled from "./card.module.css";
 
 export const CardPokemon = ({ name }) => {
@@ -8,7 +8,7 @@ export const CardPokemon = ({ name }) => {
   async function obtenerPokemon() {
     const resp = await response(`pokemon/${name}`);
     setPokemon(resp?.data);
-    console.log(resp?.data);
+    //console.log(resp?.data);
   }
 
   useEffect(() => {
@@ -16,8 +16,7 @@ export const CardPokemon = ({ name }) => {
     return function cleanup() {
       obtenerPokemon();
     };
-  }, []);
-  console.log(Pokemon?.types);
+  }, [name]);
 
   const obtenerColorDelTipo = (tipo) => {
     switch (tipo) {
@@ -27,7 +26,6 @@ export const CardPokemon = ({ name }) => {
         return styled.backBug;
       case "electric":
         return styled.backElectrico;
-
       default:
         return styled.backDefecto;
     }

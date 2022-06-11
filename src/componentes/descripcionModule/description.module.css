@@ -1,0 +1,33 @@
+.containerDiv {
+  border-style: solid;
+  border-width: 1px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.borde {
+  border-style: solid;
+  border-width: 1px;
+}
+
+.DivPicture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgPokemon {
+  border-style: solid;
+  border-width: 1px;
+  width: 60%;
+}
+
+.Pname {
+  font-weight: bold;
+  font-size: 30px;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  text-align: center;
+}
