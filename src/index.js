@@ -1,16 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Description from './componentes/descripcionModule/Description';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./componentes/routes/Router";
 
-import './index.css';
-
-
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Description />
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-
