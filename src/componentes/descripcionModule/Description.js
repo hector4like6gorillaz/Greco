@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { envAPI } from "../../ApiCalls";
 import styled from "./description.module.css";
 
@@ -12,7 +12,7 @@ const Description = () => {
   async function obtenerPokemon() {
     const resp = await response(`pokemon/${name}`);
     setPokemon(resp?.data);
-    //console.log(resp?.data);
+    console.log(resp?.data);
   }
 
   useEffect(() => {
@@ -25,7 +25,36 @@ const Description = () => {
   //console.log(Pokemon);
   return (
     <div className={`${styled.containerDiv}`}>
-      <div className={`${styled.borde}`}></div>
+      <div className={`${styled.borde} ${styled.DescriptionPokemon}`}>
+        <div>
+          <p className={`${styled.PDescriptionSection}`}>ID: {Pokemon?.id}</p>
+          <p className={`${styled.PDescriptionSection}`}>
+            Altura: {Pokemon?.height}"
+          </p>
+          <p className={`${styled.PDescriptionSection}`}>
+            Peso: {Pokemon?.weight}
+          </p>
+          <div>
+            {Pokemon?.abilities?.map((item, index) => {
+              return (
+                <p className={`${styled.PDescriptionSection}`} key={index}>
+                  {item.ability.name}
+                </p>
+              );
+            })}
+          </div>
+
+          <div>
+            {Pokemon?.types?.map((item, index) => {
+              return (
+                <p className={`${styled.PDescriptionSection}`} key={index}>
+                  {item.type.name}
+                </p>
+              );
+            })}
+          </div>
+        </div>
+      </div>
       <div className={`${styled.borde} ${styled.DivPicture}`}>
         <p className={`${styled.Pname}`}>{Pokemon?.name}</p>
         <img
@@ -33,7 +62,11 @@ const Description = () => {
           src={Pokemon?.sprites?.other?.home?.front_default}
         />
       </div>
-      <div className={`${styled.borde}`}></div>
+      <div className={`${styled.borde} ${styled.DescriptionPokemon}`}>
+        <Link to={`/pokedex/${Pokemon?.id}`}>
+          <button>Ir a la pokedex {Pokemon?.id}</button>
+        </Link>
+      </div>
     </div>
   );
 };

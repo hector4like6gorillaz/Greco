@@ -4,11 +4,6 @@ import { envAPI } from "../../ApiCalls";
 import styled from "./card.module.css";
 
 export const CardPokemon = ({ name }) => {
-  let params = useParams();
-  const Name = `${params?.name}`;
-
-  console.log(name)
-
   const [Pokemon, setPokemon] = useState(null);
   const response = async (page) => envAPI(page);
   async function obtenerPokemon() {
