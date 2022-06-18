@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { envAPI } from "../../ApiCalls";
 import styled from "./card.module.css";
 
 export const CardPokemon = ({ name }) => {
+  let params = useParams();
+  const Name = `${params?.name}`;
+
+  console.log(name)
+
   const [Pokemon, setPokemon] = useState(null);
   const response = async (page) => envAPI(page);
   async function obtenerPokemon() {
@@ -32,36 +38,38 @@ export const CardPokemon = ({ name }) => {
   };
 
   return (
-    <div
-      className={`${styled.bordeDeCarta} ${obtenerColorDelTipo(
-        Pokemon?.types[0]?.type?.name
-      )}`}
-    >
-      <div className={`${styled.CardContainer}`}>
-        <p className={`${styled.PName}`}>
-          {Pokemon?.id}.-{name}
-        </p>
-        <img
-          className={`${styled.ImgPokemon}`}
-          src={Pokemon?.sprites?.other?.home?.front_default}
-        />
+    <Link to={`carta/${name}`}>
+      <div
+        className={`${styled.bordeDeCarta} ${obtenerColorDelTipo(
+          Pokemon?.types[0]?.type?.name
+        )}`}
+      >
+        <div className={`${styled.CardContainer}`}>
+          <p className={`${styled.PName}`}>
+            {Pokemon?.id}.-{name}
+          </p>
+          <img
+            className={`${styled.ImgPokemon}`}
+            src={Pokemon?.sprites?.other?.home?.front_default}
+          />
 
-        <div className={`${styled.typos}`}>
-          {Pokemon !== null &&
-            Pokemon?.types?.map((item, index) => {
-              return (
-                <p
-                  className={`${styled.Ptypo} ${obtenerColorDelTipo(
-                    item.type.name
-                  )}`}
-                  key={index}
-                >
-                  {item.type.name}
-                </p>
-              );
-            })}
+          <div className={`${styled.typos}`}>
+            {Pokemon !== null &&
+              Pokemon?.types?.map((item, index) => {
+                return (
+                  <p
+                    className={`${styled.Ptypo} ${obtenerColorDelTipo(
+                      item.type.name
+                    )}`}
+                    key={index}
+                  >
+                    {item.type.name}
+                  </p>
+                );
+              })}
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };

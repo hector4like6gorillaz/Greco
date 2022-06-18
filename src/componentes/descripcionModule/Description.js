@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { envAPI } from "../../ApiCalls";
 import styled from "./description.module.css";
 
 const Description = () => {
+  const { name } = useParams();
+
   const [Pokemon, setPokemon] = useState(null);
-  const name = "pikachu";
+
   const response = async (page) => envAPI(page);
   async function obtenerPokemon() {
     const resp = await response(`pokemon/${name}`);
@@ -18,7 +21,8 @@ const Description = () => {
       obtenerPokemon();
     };
   }, [name]);
-  console.log(Pokemon);
+
+  //console.log(Pokemon);
   return (
     <div className={`${styled.containerDiv}`}>
       <div className={`${styled.borde}`}></div>
